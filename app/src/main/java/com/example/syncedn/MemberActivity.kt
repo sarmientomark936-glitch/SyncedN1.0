@@ -65,7 +65,7 @@ open class MemberActivity : AppCompatActivity() {
     private var displayName = "Yanyan"
     private var fullName = "Ryan Lloyd Genturo"
     private var profileReturnPage = "settings"
-    private val preferences by lazy { getSharedPreferences("synced_profile", Context.MODE_PRIVATE) }
+    private val preferences by lazy { getSharedPreferences("synced_profile", MODE_PRIVATE) }
     private var teamName = ""
     private var successFlow = "register"
 
@@ -591,7 +591,8 @@ open class MemberActivity : AppCompatActivity() {
         private val ink = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.STROKE; strokeCap = Paint.Cap.ROUND
         }
-        init { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+        init { importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+        }
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
             val checkpoint = canvas.save(); canvas.scale(width / 32f, height / 32f)

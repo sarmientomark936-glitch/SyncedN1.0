@@ -66,7 +66,7 @@ class AdminActivity : AppCompatActivity() {
     private var displayName = "Yanyan"
     private var fullName = "Ryan Lloyd Genturo"
     private var profileReturnPage = "settings"
-    private val preferences by lazy { getSharedPreferences("synced_profile", Context.MODE_PRIVATE) }
+    private val preferences by lazy { getSharedPreferences("synced_profile", MODE_PRIVATE) }
     private var teamName = ""
     private var successFlow = "register"
 
@@ -615,7 +615,8 @@ class AdminActivity : AppCompatActivity() {
         private val ink = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.STROKE; strokeCap = Paint.Cap.ROUND
         }
-        init { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+        init { importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+        }
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
             val checkpoint = canvas.save(); canvas.scale(width / 32f, height / 32f)
@@ -2142,8 +2143,9 @@ class AdminActivity : AppCompatActivity() {
                 background = bg(Color.rgb(217,217,217),9);setPadding(dp(10),0,dp(10),0)
                 contentDescription = "Copy demo invite code"
                 setOnClickListener {
-                    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                    clipboard.setPrimaryClip(android.content.ClipData.newPlainText("Demo team invite", "DF432DE"))
+                    val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                    clipboard.primaryClip =
+                        android.content.ClipData.newPlainText("Demo team invite", "DF432DE")
                     toast("Demo invite code copied; it is not a live invitation.")
                 }
             }, -1, 36); col.space(20)
