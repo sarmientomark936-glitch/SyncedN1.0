@@ -2144,8 +2144,9 @@ class AdminActivity : AppCompatActivity() {
                 contentDescription = "Copy demo invite code"
                 setOnClickListener {
                     val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                    clipboard.primaryClip =
+                    clipboard.setPrimaryClip(
                         android.content.ClipData.newPlainText("Demo team invite", "DF432DE")
+                    )
                     toast("Demo invite code copied; it is not a live invitation.")
                 }
             }, -1, 36); col.space(20)
