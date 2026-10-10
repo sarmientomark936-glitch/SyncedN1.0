@@ -1,43 +1,37 @@
 package com.example.syncedn
 
-import android.os.Bundle
-import android.content.Intent
-import android.net.Uri
-import android.widget.Spinner
-import android.widget.ArrayAdapter
-import android.widget.Switch
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Outline
-import android.view.ViewOutlineProvider
-import android.view.ViewGroup
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.ColorFilter
+import android.graphics.Outline
 import android.graphics.Paint
-import android.graphics.PixelFormat
+import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
+import android.net.Uri
+import android.os.Bundle
 import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Base64
+import android.util.Patterns
 import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewOutlineProvider
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.graphics.Typeface
-import androidx.core.graphics.PathParser
-import androidx.core.graphics.withScale
-import androidx.core.graphics.withTranslation
-
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
-import android.util.Patterns
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -591,7 +585,9 @@ open class MemberActivity : AppCompatActivity() {
         private val ink = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.STROKE; strokeCap = Paint.Cap.ROUND
         }
-        init { importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+
+        init {
+            importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
